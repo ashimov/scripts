@@ -1,0 +1,14 @@
+# Скрипт очистки кэша 1С(v0.1)
+$paths = Get-ChildItem -Directory C:\Users | Select-Object $_.Name
+
+ForEach ($path in $paths){
+    If (test-path "C:\Users\*\AppData\Local\1C\")
+    {
+        Remove-Item -Path "C:\Users\*\AppData\Local\1C\*" -Recurse
+        Remove-Item -Path "C:\Users\*\AppData\Roaming\1C\1cv8\*" -Recurse
+        Remove-Item -Path "C:\Users\*\AppData\Roaming\1C\1cv8\" -Recurse
+        Remove-Item -Path "C:\Users\*\AppData\Roaming\1C\1cv82\*.*" -Recurse
+        Remove-Item -Path "C:\Users\*\AppData\Roaming\1C\1cv82\" -Recurse
+
+    }
+}
